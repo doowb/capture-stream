@@ -1,49 +1,96 @@
-# capture-stream [![NPM version](https://badge.fury.io/js/capture-stream.svg)](http://badge.fury.io/js/capture-stream)  [![Build Status](https://travis-ci.org/doowb/capture-stream.svg)](https://travis-ci.org/doowb/capture-stream) 
+# capture-stream [![NPM version](https://badge.fury.io/js/capture-stream.svg)](http://badge.fury.io/js/capture-stream)  [![Build Status](https://travis-ci.org/doowb/capture-stream.svg)](https://travis-ci.org/doowb/capture-stream)
 
 > Capture stream output.
 
-## Install with [npm](npmjs.org)
+Install with [npm](https://www.npmjs.com/)
 
-```bash
-npm i capture-stream --save
+```sh
+$ npm i capture-stream --save
 ```
 
 ## Usage
 
 ```js
-var captureStream = require('capture-stream');
+var capture = require('capture-stream');
+var restore = capture(process.stdout);
+
+console.log('Hello, world!!!');
+console.log('foo', 'bar');
+
+var output = restore();
+console.log(output);
+//=> [ [ 'Hello, world!!!\n' ], [ 'foo bar\n' ] ]
+```
+
+This module has been built to be used in unit tests to easily capture output from `process.stdout` and `process.stderr` and test the results.
+
+```js
+describe('awesome module', function () {
+  function log () {
+    console.log.apply(console, arguments);
+  }
+
+  it('should write "Hello, world!!!" to stdout', function () {
+    var restore = capture(process.stdout);
+    log('Hello, world!!!');
+    var output = restore();
+    assert.equal(output.length, 1);
+    assert(output[0][0].indexOf('Hello, world!!!') === 0);
+  });
+});
 ```
 
 ## API
-<!-- add a path or glob pattern for files with code comments to use for docs  -->
-{%= apidocs("index.js") %}
 
-## Related projects
-<!-- add an array of related projects, then un-escape the helper -->
-{%= related([]) %}  
+### [captureStream](index.js#L27)
 
-## Running tests
-Install dev dependencies.
+Capture the output from a stream and store later.
 
-```bash
-npm i -d && npm test
+**Params**
+
+* `stream` **{Stream}**: A stream to capture output from (e.g. `process.stdout`, `process.stderr`)
+* `returns` **{Function}** `restore`: function that restores normal output and returns an array of output.
+
+**Example**
+
+```js
+var restore = capture(process.stdout);
+console.log('Hello, world!!!');
+console.log('foo', 'bar');
+
+var output = restore();
+console.log(output);
+//=> [ [ 'Hello, world!!!\n' ], [ 'foo bar\n' ] ]
 ```
 
+## Related projects
+
+* [composer-errors](https://www.npmjs.com/package/composer-errors): Listen for and output Composer errors. | [homepage](https://github.com/doowb/composer-errors)
+* [composer-runtimes](https://www.npmjs.com/package/composer-runtimes): Write composer task start and end times to a stream. | [homepage](https://github.com/doowb/composer-runtimes)
+
+## Running tests
+
+Install dev dependencies:
+
+```sh
+$ npm i -d && npm test
+```
 
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/capture-stream/issues)
 
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/capture-stream/issues/new).
 
 ## Author
 
 **Brian Woodward**
- 
+
 + [github/doowb](https://github.com/doowb)
-+ [twitter/doowb](http://twitter.com/doowb) 
++ [twitter/doowb](http://twitter.com/doowb)
 
 ## License
+
 Copyright © 2015 Brian Woodward
-Released under the MIT license
+Released under the MIT license.
 
 ***
 

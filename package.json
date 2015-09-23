@@ -20,6 +20,15 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "should": "^7.1.0"
+  },
+  "verb": {
+    "related": {
+      "list": [
+        "composer-runtimes",
+        "composer-errors"
+      ]
+    }
   }
 }
