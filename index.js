@@ -30,8 +30,8 @@ module.exports = function captureStream (stream) {
   stream.write = function () {
     output.push([].slice.call(arguments));
   };
-  return function restore () {
+  return function restore (wantString) {
     stream.write = write;
-    return output;
+    return wantString ? output.join('') : output;
   };
 };
