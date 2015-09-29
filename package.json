@@ -1,7 +1,7 @@
 {
   "name": "capture-stream",
   "description": "Capture stream output.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/doowb/capture-stream",
   "author": "Brian Woodward (https://github.com/doowb)",
   "repository": "doowb/capture-stream",
