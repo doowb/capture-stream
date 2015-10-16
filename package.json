@@ -30,5 +30,17 @@
         "composer-errors"
       ]
     }
-  }
+  },
+  "contributors": [
+    {
+      "name": "Brian Woodward",
+      "email": "brian.woodward@gmail.com",
+      "url": "https://github.com/doowb"
+    },
+    {
+      "name": "Aparajita Fishman",
+      "email": "",
+      "url": "https://github.com/aparajita"
+    }
+  ]
 }
