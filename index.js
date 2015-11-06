@@ -24,13 +24,13 @@
  * @api public
  */
 
-module.exports = function captureStream (stream) {
+module.exports = function captureStream(stream) {
   var output = [];
   var write = stream.write;
-  stream.write = function () {
+  stream.write = function() {
     output.push([].slice.call(arguments));
   };
-  return function restore (wantString) {
+  return function restore(wantString) {
     stream.write = write;
     return wantString ? output.join('') : output;
   };

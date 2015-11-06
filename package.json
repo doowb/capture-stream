@@ -20,8 +20,7 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "^7.1.0"
+    "mocha": "^2.3.3"
   },
   "verb": {
     "related": {
@@ -30,5 +29,28 @@
         "composer-errors"
       ]
     }
-  }
+  },
+  "keywords": [
+    "capture",
+    "process",
+    "stderr",
+    "stdout",
+    "stream",
+    "test",
+    "testing",
+    "tests",
+    "unit"
+  ],
+  "contributors": [
+    {
+      "name": "Brian Woodward",
+      "email": "brian.woodward@gmail.com",
+      "url": "https://github.com/doowb"
+    },
+    {
+      "name": "Aparajita Fishman",
+      "email": "",
+      "url": "https://github.com/aparajita"
+    }
+  ]
 }

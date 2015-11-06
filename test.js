@@ -9,15 +9,14 @@
 
 /* deps:mocha */
 var assert = require('assert');
-var should = require('should');
 var capture = require('./');
 
-describe('capture-stream', function () {
-  function log () {
+describe('capture-stream', function() {
+  function log() {
     console.log.apply(console, arguments);
   }
 
-  it('should capture "Hello, world!!!" from stdout and return an array when restore is called with no arguments', function () {
+  it('should capture "Hello, world!!!" from stdout and return an array when restore is called with no arguments', function() {
     var restore = capture(process.stdout);
     log('Hello, world!!!');
     var output = restore();
@@ -25,7 +24,7 @@ describe('capture-stream', function () {
     assert(output[0][0].indexOf('Hello, world!!!') === 0);
   });
 
-  it('should capture "Hello, world!!!" from stdout and return a string when restore is called with a truthy argument', function () {
+  it('should capture "Hello, world!!!" from stdout and return a string when restore is called with a truthy argument', function() {
     var restore = capture(process.stdout);
     log('Hello, world!!!');
     var output = restore(true);
