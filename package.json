@@ -20,14 +20,30 @@
     "test": "mocha"
   },
   "devDependencies": {
+    "gulp-format-md": "^0.1.7",
     "mocha": "^2.3.3"
   },
   "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
     "related": {
       "list": [
         "composer-runtimes",
         "composer-errors"
       ]
+    },
+    "reflinks": [
+      "verb"
+    ],
+    "lint": {
+      "reflinks": true
     }
   },
   "keywords": [
